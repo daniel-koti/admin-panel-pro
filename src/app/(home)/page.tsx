@@ -1,7 +1,10 @@
 import { SettingTabs } from '@/components/settings-tabs'
+import * as Select from '@/components/form/select'
 import * as Input from '@/components/input'
 import * as FileInput from '@/components/form/file-input'
+
 import { Mail } from 'lucide-react'
+import { CountrySelect } from './country-select'
 
 export default function Home() {
   return (
@@ -63,7 +66,7 @@ export default function Home() {
             >
               Email
             </label>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6">
               <Input.Root>
                 <Input.Prefix>
                   <Mail className="h-5 w-5 text-zinc-500" />
@@ -98,14 +101,13 @@ export default function Home() {
             <label htmlFor="role" className="text-sm font-medium text-zinc-700">
               Role
             </label>
-            <div className="grid grid-cols-2 gap-6">
-              <Input.Root>
-                <Input.Prefix>
-                  <Mail className="h-5 w-5 text-zinc-500" />
-                </Input.Prefix>
-                <Input.Control id="role" defaultValue="design engineer" />
-              </Input.Root>
-            </div>
+
+            <Input.Root>
+              <Input.Prefix>
+                <Mail className="h-5 w-5 text-zinc-500" />
+              </Input.Prefix>
+              <Input.Control id="role" defaultValue="design engineer" />
+            </Input.Root>
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
@@ -115,7 +117,7 @@ export default function Home() {
             >
               Country
             </label>
-            <div className="grid grid-cols-2 gap-6"></div>
+            <CountrySelect />
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
@@ -125,7 +127,21 @@ export default function Home() {
             >
               Timezone
             </label>
-            <div className="grid grid-cols-2 gap-6"></div>
+
+            <Select.Root>
+              <Select.Trigger>
+                <Select.Value placeholder="Select your timezone..." />
+              </Select.Trigger>
+
+              <Select.Content>
+                <Select.Item value="utc-3">
+                  <Select.ItemText>
+                    Pacific Standard Time (PST)
+                    <span className="text-sm text-zinc-500">UTC 08:00</span>
+                  </Select.ItemText>
+                </Select.Item>
+              </Select.Content>
+            </Select.Root>
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
