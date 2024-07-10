@@ -12,7 +12,7 @@ export function Trigger({ children, ...props }: TriggerProps) {
     <Select.Trigger
       {...props}
       className={twMerge(
-        'flex h-11 w-full items-center justify-between gap-2 rounded-lg border border-zinc-300 px-3 py-2 shadow-sm outline-none',
+        'flex h-11 w-full items-center justify-between gap-2 rounded-lg border border-zinc-300 px-3 py-2 shadow-sm outline-none focus:border-violet-300 focus:ring-4 focus:ring-violet-100',
         'data-[placeholder]:text-zinc-600',
         props.className,
       )}
