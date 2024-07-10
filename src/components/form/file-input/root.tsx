@@ -14,6 +14,7 @@ type FileInputContextType = {
   id: string
   files: File[]
   onFilesSelected: (files: File[], multiple: boolean) => void
+  onRemoveFile: (file: File) => void
 }
 
 const FileInputContext = createContext({} as FileInputContextType)
@@ -30,8 +31,15 @@ export function Root(props: RootProps) {
     }
   }
 
+  function onRemoveFile(file: File) {
+    const updatedFiles = files.filter((item) => item.name !== file.name)
+    setFiles(updatedFiles)
+  }
+
   return (
-    <FileInputContext.Provider value={{ id, files, onFilesSelected }}>
+    <FileInputContext.Provider
+      value={{ id, files, onFilesSelected, onRemoveFile }}
+    >
       <div {...props} />
     </FileInputContext.Provider>
   )
