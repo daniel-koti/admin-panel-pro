@@ -5,10 +5,12 @@ import { useFileInput } from './root'
 import { tv, VariantProps } from 'tailwind-variants'
 
 const fileItem = tv({
+  // Slots são utilizados para definir partes específicas do component e possivelmente configurar as suas variações
+
   slots: {
     container:
       'group flex items-start gap-4 rounded-lg border border-zinc-200 p-4',
-    icon: 'rounded-full border-4 border-violet-100 bg-violet-200 p-2 text-violet-600',
+    icon: 'rounded-full border-4 border-violet-100 bg-violet-200 p-2 text-violet-600', // configuração base do icon
     deleteButton: '',
   },
 
@@ -22,7 +24,7 @@ const fileItem = tv({
       },
       error: {
         container: 'bg-error-25 border-error-300',
-        icon: 'bg-error-100 border-error-50 text-error-600',
+        icon: 'bg-error-100 border-error-50 text-error-600', // variação do icon para error
         deleteButton: 'text-error-700 hover:text-error-900',
       },
     },
@@ -46,7 +48,7 @@ export function FileItem({ file, state }: FileItemProps) {
       {state === 'error' ? (
         <div className="flex flex-1 flex-col items-start gap-1">
           <div className="flex flex-col">
-            <span className="text-error-700 text-sm font-medium">
+            <span className="text-sm font-medium text-error-700">
               Upload failed, please try again.
             </span>
             <span className="text-sm text-red-600">{file.name}</span>
@@ -54,7 +56,7 @@ export function FileItem({ file, state }: FileItemProps) {
 
           <button
             type="button"
-            className="text-error-700 hover:text-error-900 text-sm font-semibold"
+            className="text-sm font-semibold text-error-700 hover:text-error-900"
           >
             Try again
           </button>
