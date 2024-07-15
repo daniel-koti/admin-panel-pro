@@ -27,7 +27,7 @@ export function Logo() {
           />
         </defs>
       </svg>
-      <span>Panel UI</span>
+      <span>Daniel Panel UI</span>
     </strong>
   )
 }
